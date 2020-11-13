@@ -16,12 +16,38 @@ if(isset($_post['submit'])){
 	}
 	if(empty($_POST['phonenum']))
 	{
-		$fnameErr= "name is required";
+		$phonenumErr= "phonenum is required";
 	}
+	else{
 	$PhoneNum=$_post['Phone Num'];
-	$Email=$_post['Email'];
-	$Password=$_post['Password'];
+	}
+	if(empty($_POST['email']))
+	{
+		$emailErr= "email is required";
+	}
+	else{
+	$email=$_post['email'];
+	}
+	if(empty($_POST['password']))
+	{
+		$passErr= "pass is required";
+	}
+	else{
+	$Password=$_post['password'];
+	}
+	if(empty($_POST['address']))
+	{
+		$addErr= "add is required";
+	}
+	else{
 	$Address=$_post['Address'];
+	}
+	if(empty($_POST['NIDNum']))
+	{
+		$NIDNumErr= "NIDNum is required";
+	}
+	else{
+	
 	$NIDNum=$_post['NID Num'];
 }
 ?>
