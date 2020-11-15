@@ -1,6 +1,15 @@
 <?php
 $itemName=$itemDescription=$itemCat=$itemSubCat=$itemQty=$itemPrice="";
-if(isset($_POST['formAddItems']))
+if(isset ($_REQUEST['itemId']) )
+	{
+		$itemId= $_REQUEST['itemId'];
+	}
+	else
+	{
+		header('location: ../view/item.php');
+	}
+	//echo $itemId;
+	if(isset($_POST['formUpdateItems']))
 {
 	if(empty($_POST['iname']))
 	{
@@ -63,9 +72,9 @@ if(isset($_POST['formAddItems']))
 <body>
 <?php include('../view/header.php'); ?>
 <h1>Add items</h1>
-<form action="../controller/action_additems.php" method="POST" >
+<form action="" method="POST" >
 	<label for="iname" >Items Name</label>
-	<input type="text" name="iname" id="iname" placeholder="Enter Item Name" >
+	<input type="text" name="iname" id="iname" value="Hayrabadi Birani" placeholder="Enter Item Name" >
 	<span class="error" ><?php if(isset($itemNameErr)){echo $itemNameErr;} ?></span>
 	<br>
 	<br>
@@ -76,8 +85,8 @@ if(isset($_POST['formAddItems']))
 	<br>
 	<label for="icat" >Cetagory</label>
 	<select name="icat" id="icat" >
-		<option selected disabled>Choose...</option>
-		<option value="salads" >Salads</option>
+		<option disabled>Choose...</option>
+		<option selected value="salads" >Salads</option>
 		<option value="desserts" >Desserts</option>
 		<option value="drinks" >Drinks</option>
 	</select><span class="error" >
@@ -86,8 +95,8 @@ if(isset($_POST['formAddItems']))
 	<br>
 	<label for="isubcat" >Sub Cetagory</label>
 	<select name="isubcat" id="isubcat" >
-		<option selected disabled >Choose...</option>
-		<option value="salads" >Salads</option>
+		<option disabled >Choose...</option>
+		<option selected value="salads" >Salads</option>
 		<option value="desserts" >Desserts</option>
 		<option value="drinks" >Drinks</option>
 	</select>
@@ -95,17 +104,16 @@ if(isset($_POST['formAddItems']))
 	<br>
 	<br>
 	<label for="iQty" >Quantity: </label>
-	<input type="number" name="iQty" id="iQty" min="1" max="100"  >
+	<input type="number" name="iQty" id="iQty" value="25" min="1" max="100"  >
 	<span class="error" ><?php if(isset($itemQtyErr)){echo $itemQtyErr;} ?></span>
 	<br>
 	<br>
 	<label for="iprice" >Price</label>
-	<input type="text" name="iprice" id="iprice" placeholder="Enter Price" >
+	<input type="text" name="iprice" id="iprice" value="250" placeholder="Enter Price" >
 	<span class="error" ><?php if(isset($itemPriceErr)){echo $itemPriceErr;} ?></span>
 	<br>
 	<br>
- <input type="Submit" name="formAddItems" value="Add Items" >
- <input type="reset" >
+ <input type="Submit" name="formUpdateItems" value="Update" >
 
 	
 </form>

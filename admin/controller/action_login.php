@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['loginForm']))
+if (isset ($_POST['form1']) )
 {
 	if(empty($_POST['uname']))
 	{
@@ -17,13 +17,13 @@ if(isset($_POST['loginForm']))
 	}
 	$myfile = fopen("../data/admininfo.txt", "r") or die("Unable to open file!");
 	while( $line=fgets($myfile))
-{
-	$words = explode(",",$line);
-	$user=$words[1];
-	$pass=$words[2];
-	
-}
-fclose($myfile);
+	{
+		$words = explode(",",$line);
+		$user=$words[1];
+		$pass=$words[2];
+		
+	}
+	fclose($myfile);
 	if ($uname==$user && $password=$pass){
 		session_start();
 		$_SESSION['name'] = "resdnt";
@@ -31,11 +31,14 @@ fclose($myfile);
 		header ("location: ../view/index.php");
 	}
 	else{
-		$error = "Invaild Username or password";
+		echo $error = "Invaild Username or password";
 	}
 	
 
 
+}
+else{
+	echo "Can no found";
 }
 
 ?>
