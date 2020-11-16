@@ -10,4 +10,4 @@ $myfile=fopen("../data/user.txt","r") or die("Unable to open file!");
 			
 			echo $user;
 			echo $pass;
-			?>
+		?>
