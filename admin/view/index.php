@@ -16,7 +16,9 @@
 <title>Admin</title>
 </head>
 <body>
-<?php include('header.php'); ?>
+<center><?php include('header.php'); ?></center>
+
+<center><?php include('footer.php'); ?></center>
 
 </body>
 </html>
