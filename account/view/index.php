@@ -16,9 +16,9 @@ else
 <title>Account</title>
 </head>
 <body>
-<?php include('header.php'); ?>
-<center><h1>Welcome To RMS Account</h1></center>
 
+<center><h1>Welcome To RMS Account</h1></center>
+<?php include('header.php'); ?>
 
 </body>
 </html>
