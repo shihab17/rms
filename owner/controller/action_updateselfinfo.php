@@ -9,6 +9,8 @@
 </style>
     </head>
     <body>
+	<?php include('../view/Header.php'); ?>
+
 
     <?php
 
@@ -79,9 +81,7 @@ function test_input($data) {
 
              <fieldset>
     <legend align="center" style="font-size: 2.0em">Update profile</legend>
-             <form action="home.php" method="post" align="center">
-
-               
+            <center>
 
    <table cellpadding="2" width="50%" bgcolor="E0E0E0" align="center"cellspacing="2">
   Name: <input type="text" name="name" required>
@@ -106,23 +106,18 @@ function test_input($data) {
   <input type="radio" name="gender" value="other" required>Other
   <span class="error">* <?php echo $genderErr;?></span>
   <br><br>
-  BLOOD GROUP:
-<input type="radio" name="bloodgrp" value="+" required>positive
-  <input type="radio" name="bloodgrp" value="-" required>negative
-  <input type="radio" name="bloodgrp" value="other" required>Other
-  <span class="error">* <?php echo $bloodgrpErr;?></span>  
-  <br><br> 
+ 
    DATE OF BIRTH: <input type="Date" name="dateofbirth" min="1953-01-01" max="1998-01-01" required>
    <span class="error">* <?php echo $dateofbirthErr;?></span>
+  
+  </center>
   <br><br>
-  ABOUT: <input type="text" name="About box" >
-   <span class="error">* <?php echo $AboutErr;?></span>
-  <br><br>
-  <input type="submit" name="SET Account" value="SET Account">  
-  <form action="home.php" method="post" align="center">
-    
-</form>
-
+  <input type="submit" name="SET Account" value="SET Account"> 
+<br>
+<br>
+  
+  
+<?php include('../view/Footer.php'); ?>
        
   </table>
   </fieldset>
