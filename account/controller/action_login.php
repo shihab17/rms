@@ -1,5 +1,8 @@
-<?php
-if($_SERVER["REQUEST_METHOD"] == "post") {
+	<?php
+	  	$unameErr = "";
+	  	$uname = "";
+	  	 
+if($_SERVER["REQUEST_METHOD"] == "POST") {
 			if(empty($_REQUEST["uname"])) {
 				$unameErr= "Name is required";
 				
@@ -23,14 +26,19 @@ if($_SERVER["REQUEST_METHOD"] == "post") {
 			}
 			fclose($myfile);
 			
-			if($uname=$user && $pass=$pas)
+			if($uname==$user && $pass==$pas)
 			{
-				echo "Login";
+				session_start();
+				$_SESSION['name']="name";
+			$_SESSION['uname']=$user;
+			header("location: ../view/index.php");
 				
 			}
 			else {
-				echo "invalid";
+				echo "invalid &nbsp";
+				echo "<a href='../view/login.php'>try again </a>";
 			}
 			
 		} 
-		?>
+		
+	?>
