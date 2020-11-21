@@ -15,7 +15,7 @@ if (isset ($_POST['form1']) )
 	else{
 		$password=$_POST['psw'];
 	}
-	$myfile = fopen("../data/admininfo.txt", "r") or die("Unable to open file!");
+	$myfile = fopen("../data/owner.txt", "r") or die("Unable to open file!");
 	while( $line=fgets($myfile))
 	{
 		$words = explode(",",$line);
@@ -28,7 +28,7 @@ if (isset ($_POST['form1']) )
 		session_start();
 		$_SESSION['name'] = "resdnt";
 		$_SESSION['uname'] =$uname;
-		header ("location: ../view/index.php");
+		header ("location: ../view/home.php");
 	}
 	else{
 		echo $error = "Invaild Username or password";
