@@ -7,6 +7,7 @@
   <a href="makebill.php">PAYMENT SLIP</a> |
    <a href="customerinfo.php">CUSTOMER INFORMATION</a> |
    <a href="changemailid.php">CHANGE E-MAIL ID</a> |
+     <a href="signup.php">SIGN UP</a> |
    </center>
   
 </nav>

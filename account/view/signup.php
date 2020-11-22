@@ -3,6 +3,7 @@
 <head></head>
 
 <body>
+<?php include('../view/Header.php'); ?>
 <?php
 $fnameErr="";
 $firstname=$lastname=$PhoneNum=$Email=$Password=$Address=$NIDNum="";
@@ -97,7 +98,7 @@ $firstname=$lastname=$PhoneNum=$Email=$Password=$Address=$NIDNum="";
 </form>
 
 
-
+<?php include('../view/Footer.php'); ?>
 </body>
 
 
