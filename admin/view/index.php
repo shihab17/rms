@@ -17,6 +17,9 @@
 </head>
 <body>
 <center><?php include('header.php'); ?></center>
+<br>
+<center><h1>Welcome to Admin Homepage</h1></center>
+<br>
 
 <center><?php include('footer.php'); ?></center>
 

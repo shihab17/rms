@@ -1,3 +1,13 @@
+<?php
+	ob_start();
+	session_start();
+	if($_SESSION['name']!='resdnt'){
+		header("location: login.php");
+	}
+	else{
+	$uname= $_SESSION['uname'];
+	}
+?>
 <!DOCTYPE html>
 <html>
 <title>Profile</title>
@@ -6,7 +16,7 @@
 <center>
 <h2>Profile</h2>
 <h4><a style="text-decoration: none; background-color:#d1ffad;" href="../controller/action_changePassword.php?uname=admin">Change Password&nbsp;&nbsp;</a>
-<a style="text-decoration: none; background-color:#d1ffad;" href="../view/profile.php">Edit Profile&nbsp;&nbsp;</a></h4>
+<a style="text-decoration: none; background-color:#d1ffad;" href="../controller/action_updateProfile.php?uname=admin">Edit Profile&nbsp;&nbsp;</a></h4>
 <table>
 	<tr> 
 		<td><b> Username: </b></td>

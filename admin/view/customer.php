@@ -10,16 +10,18 @@
 ?>
 <!DOCTYPE html>
 <html>
-<title>Items</title>
+<title>Employee</title>
 <body>
 <?php include('header.php'); ?>
-<center><h1><a style="text-decoration: none;" href="addItems.php" >Add items</a></h1>
+<center><h1><a style="text-decoration: none;" href="addCustomer.php" >Add Customer</a></h1>
 <table  border= "1"  cellpadding= "25" >
 <tr>
 	<th>#</th>
+	<th>Full Name</th>
+	<th>Gender</th>
+	<th>Email</th>
+	<th>Phone Number</th>
 	<th>Item Name</th>
-	<th>Cetagory</th>
-	<th>Sub-Cetagory</th>
 	<th>Quantity</th>
 	<th>Price</th>
 	<th>Action</th>
@@ -31,8 +33,10 @@
 <td>1</td>
 <td>1</td>
 <td>1</td>
-<td> <a href="../controller/action_itemUpdate.php?itemId=1" style="text-decoration:none;" >EDIT </a> ||
-<a href="../controller/action_itemRemove.php?itemId=1" style="text-decoration:none;" >REMOVE</a></td>
+<td>1</td>
+<td>1</td>
+<td> <a href="../controller/action_customerUpdate.php?customerId=1" style="text-decoration:none;" >EDIT </a> ||
+<a href="../controller/action_customerRemove.php?customerId=1" style="text-decoration:none;" >REMOVE</a></td>
 </tr>
 </table>
 </center>

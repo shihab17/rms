@@ -1,30 +1,58 @@
 <?php 
+ob_start();
+	session_start();
+	if($_SESSION['name']!='resdnt'){
+		header("location: ../view/login.php");
+	}
+	else{
+	$uname= $_SESSION['uname'];
+	}
 if(isset($_POST['formAddEmp']))
 {
+	$counter = 0;
 	if(empty($_POST['empFName']))
 	{
 		$empFNameErr ="First Name is reqierd";
+		$counter = $counter + 1;
 	}
 	else{
+		if (!preg_match("/^[a-zA-Z ]*$/",$_POST['empFName'])){
+			$empFNameErr = "Only letters and white space allowed";//First name is Invaild.
+			$counter = $counter + 1;
+		}
+		else{
 		$empFName=$_POST['empFName'];
+		}
 	}
 	if(empty($_POST['empLName']))
 	{
 		$empLNameErr ="last Name is reqierd";
+		$counter = $counter + 1;
 	}
 	else{
+		if (!preg_match("/^[a-zA-Z ]*$/",$_POST['empLName'])){
+			$empLNameErr = "Only letters and white space allowed";//Last name is Invaild.
+			$counter = $counter + 1;
+		}
 		$empLName=$_POST['empLName'];
 	}
 	if(empty($_POST['empUName']))
 	{
 		$empUNameErr ="Username is reqierd";
+		$counter = $counter + 1;
 	}
 	else{
+		if (!preg_match("/(?=.{3})(?!.{11})^[a-zA-Z 0 -9]+$/",$_POST['empUName']))
+		{
+			$empUNameErr = "username is not valid, please type minimum 3 Letters";//User name is Invaild.
+			$counter = $counter + 1;
+		}
 		$empUName=$_POST['empUName'];
 	}
 	if(empty($_POST['empGender']))
 	{
 		$empGenderErr ="Gender is reqierd";
+		$counter = $counter + 1;
 	}
 	else{
 		$empGender=$_POST['empGender'];
@@ -32,6 +60,7 @@ if(isset($_POST['formAddEmp']))
 	if(empty($_POST['empBirthday']))
 	{
 		$empBirthdayErr ="Birthday is reqierd";
+		$counter = $counter + 1;
 	}
 	else{
 		$empBirthday=$_POST['empBirthday'];
@@ -39,6 +68,7 @@ if(isset($_POST['formAddEmp']))
 	if(empty($_POST['empAddress']))
 	{
 		$empAddressErr ="Address is reqierd";
+		$counter = $counter + 1;
 	}
 	else{
 		$empAddress=$_POST['empAddress'];
@@ -46,20 +76,37 @@ if(isset($_POST['formAddEmp']))
 	if(empty($_POST['empEmail']))
 	{
 		$empEmailErr ="Email Address is reqierd";
+		$counter = $counter + 1;
 	}
 	else{
+		if (!filter_var($_POST['empEmail'], FILTER_VALIDATE_EMAIL)){
+			$empEmailErr ="Email Address is invalid";
+			$counter = $counter + 1;
+		}
+		else{
 		$empEmail=$_POST['empEmail'];
+		}
 	}
 	if(empty($_POST['empPhn']))
 	{
 		$empPhnErr ="Phone Number is reqierd";
+		$counter = $counter + 1;
 	}
 	else{
-		$empPhn=$_POST['empPhn'];
+		
+		if (!preg_match (" /(^(\+8801|8801|01|008801))[1|5-9]{1}(\d){8}$/",$_POST['empPhn']) )
+			{
+				$empPhnErr="Invaild Phone Number";
+				$counter = $counter + 1;
+			}
+			else{
+				$empPhn=$_POST['empPhn'];
+			}
 	}
 	if(empty($_POST['empdgn']))
 	{
 		$empdgnErr =" reqierd";
+		$counter = $counter + 1;
 	}
 	else{
 		$empdgn=$_POST['empdgn'];
@@ -67,11 +114,18 @@ if(isset($_POST['formAddEmp']))
 	if(empty($_POST['empSalgrade']))
 	{
 		$empSalgradeErr ="reqierd";
+		$counter = $counter + 1;
 	}
 	else{
 		$empSalgrade=$_POST['empSalgrade'];
+		
 	}
-	
+	if($counter == 0){
+		$sucess="Succsessfully Added Employee";
+	}
+	else{
+		$error="Faild! Add Employee";
+	}
 	
 	
 }
@@ -85,6 +139,8 @@ if(isset($_POST['formAddEmp']))
 </style>
 <?php include('../view/header.php'); ?>
 <h1>Add employee</h1>
+<h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
+<h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
 <form action="../controller/action_addEmployee.php" method="POST" >
 	<label for="empFName">First Name </label>
 	<input type="text" id="empFName" name="empFName" value="" placeholder="Enter first name" required >

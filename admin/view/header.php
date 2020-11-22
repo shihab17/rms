@@ -3,8 +3,8 @@
 <a style="text-decoration: none;" href="../view/employee.php">User&nbsp;&nbsp;</a>
 <a style="text-decoration: none;" href="../view/profile.php">Profile&nbsp;&nbsp;</a>
 <a style="text-decoration: none;" href="../view/item.php">Items&nbsp;&nbsp;</a>
-<a style="text-decoration: none;" href="#">Stock&nbsp;&nbsp;</a>
-<a style="text-decoration: none;" href="#">Promotions&nbsp;&nbsp;</a>
+<a style="text-decoration: none;" href="../view/stock.php">Mantain Stock&nbsp;&nbsp;</a>
+<a style="text-decoration: none;" href="#">Notification&nbsp;&nbsp;</a>
 <a style="text-decoration: none;" href="#">Salary&nbsp;&nbsp;</a>
 <a style="text-decoration: none;" href="../controller/action_logout.php">Logout</a>
 </nav></br></center>

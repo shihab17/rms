@@ -1,5 +1,13 @@
 <?php
 $oldPsw=$newPsw=$rePsw="";
+if(isset ($_REQUEST['uname']) )
+	{
+		$uname= $_REQUEST['uname'];
+	}
+else
+	{
+		header('location: ../view/employee.php');
+	}
 if(isset($_POST['formCngPass']))
 {
 	try{

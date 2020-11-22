@@ -1,5 +1,13 @@
 <?php
 $itemName=$itemDescription=$itemCat=$itemSubCat=$itemQty=$itemPrice="";
+ob_start();
+	session_start();
+	if($_SESSION['name']!='resdnt'){
+		header("location: ../view/login.php");
+	}
+	else{
+	$uname= $_SESSION['uname'];
+	}
 if(isset($_POST['formAddItems']))
 {
 	if(empty($_POST['iname']))

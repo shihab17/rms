@@ -1,34 +1,79 @@
 <?php
+$counter = 0;
+ob_start();
+	session_start();
+	if($_SESSION['name']!='resdnt'){
+		header("location: ../view/login.php");
+	}
+	else{
+	$uname= $_SESSION['uname'];
+	}
 if(isset($_POST['formAddCustomer'])){
 	if(empty($_POST['cfname'])){
 		$cfnameErr="First Name is not empty";
+		$counter = $counter + 1;
 	}
 	else{
+		if (!preg_match("/^[a-zA-Z ]*$/",$_POST['cfname'])){
+			$cfnameErr = "Only letters and white space allowed";//First name is Invaild.
+			$counter = $counter + 1;
+		}
+		else{
 		$cfname=$_POST['cfname'];
+		}
 	}
 	if(empty($_POST['clname'])){
 		$clnameErr="Last Name is not empty";
+		$counter = $counter + 1;
 	}
 	else{
+		if (!preg_match("/^[a-zA-Z ]*$/",$_POST['clname'])){
+		$clnameErr = "Only letters and white space allowed";//Last name is Invaild.
+		$counter = $counter + 1;
+		}
+		else{
 		$clname=$_POST['clname'];
+		}
 	}
 	if(empty($_POST['cgender'])){
 		$cgenderErr="Gender is not empty";
+		$counter = $counter + 1;
 	}
 	else{
 		$cgender=$_POST['cgender'];
 	}
 	if(empty($_POST['cemail'])){
 		$cemailErr="Email is not empty";
+		$counter = $counter + 1;
 	}
 	else{
+		if (!filter_var($_POST['cemail'], FILTER_VALIDATE_EMAIL)){
+			$cemailErr ="Email Address is invalid";
+			$counter = $counter + 1;
+		}
+		else{
 		$cemail=$_POST['cemail'];
+		}
 	}
 	if(empty($_POST['cphone'])){
 		$cphoneErr="Phone Number is not empty";
+		$counter = $counter + 1;
 	}
 	else{
-		$cphone=$_POST['cphone'];
+		if (!preg_match (" /(^(\+8801|8801|01|008801))[1|5-9]{1}(\d){8}$/",$_POST['cphone']) )
+			{
+				$cphoneErr="Invaild Phone Number";
+				$counter = $counter + 1;
+			}
+		else{
+			$cphone=$_POST['cphone'];
+		}
+	}
+	if($counter == 0){
+		$sucess="Succsessfully Added Employee";
+	}
+	else{
+		$error="Faild! Add Employee";
 	}
 }
 ?>
@@ -43,6 +88,8 @@ if(isset($_POST['formAddCustomer'])){
 </style>
 <?php include('../view/header.php'); ?>
 <h1>Add Customer</h1>
+<h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
+<h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
 <form action="../controller/action_addCustomer.php" method="POST" >
 	<label for="cfname"> First Name </label>
 	<input type="text" name="cfname" id="cfname" placeholder="Enter Customer Name" required >

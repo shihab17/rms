@@ -1,5 +1,6 @@
 <?php
-if (isset ($_POST['form1']) )
+$uname=$password="";
+if (isset ($_POST['formLogin']) )
 {
 	if(empty($_POST['uname']))
 	{
@@ -15,7 +16,7 @@ if (isset ($_POST['form1']) )
 	else{
 		$password=$_POST['psw'];
 	}
-	$myfile = fopen("../data/owner.txt", "r") or die("Unable to open file!");
+	$myfile = fopen("../data/admininfo.txt", "r") or die("Unable to open file!");
 	while( $line=fgets($myfile))
 	{
 		$words = explode(",",$line);
@@ -28,17 +29,39 @@ if (isset ($_POST['form1']) )
 		session_start();
 		$_SESSION['name'] = "resdnt";
 		$_SESSION['uname'] =$uname;
-		header ("location: ../view/home.php");
+		header ("location: ../view/index.php");
 	}
 	else{
-		echo $error = "Invaild Username or password";
+		 $error = "Invaild Username or password";
 	}
 	
 
 
 }
-else{
-	echo "Can no found";
-}
 
 ?>
+<style>
+.error{
+	color:red;
+}
+</style>
+<!DOCTYPE html>
+<html>
+<title>Login</title>
+<body>
+
+<h1>Login</h1>
+<h4 style="color:red;"><?php if(isset($error)){ echo $error; }  ?></h4>
+<form action="" method="POST" >
+  <label for="uname">Username: </label>
+  <input type="text" id="uname" name="uname" placeholder="Enter your unsername" required>
+  <span class="error"><?php if(isset($unameErr)) { echo $unameErr; }  ?></span><br><br>
+  <label for="pwd">Password: </label>
+  <input type="password" id="pwd" name="pwd" placeholder="Enter your password" required>
+  <span class="error"><?php if(isset($passwordErr)){ echo $passwordErr; }  ?></span>
+  <br><br>
+  <input type="submit" name="formLogin" value="Login" >
+</form>
+
+</body>
+</html>
