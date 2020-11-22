@@ -16,13 +16,12 @@ if(isset($_POST['viewselfinfo']))
 	else{
 		$lastName=$_POST['lname'];
 	}
-	if(empty($_POST['email']))
-	{
-		$itemDescriptionErr="Please Enter email id";
-	}
-	else{
-		$emailid=$_POST['emailid'];
-	}
+	 if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  }
+  else {
+    $email = test_input($_POST["email"]);
+  }
 	if(empty($_POST['Present Address']))
 	{
 		$PresentAddressErr="please Enter the present add";
@@ -65,12 +64,10 @@ if(isset($_POST['viewselfinfo']))
 	else{
 		$city=$_POST[''];
 	}
-	if(empty($_POST['Gender']))
-	{
-		$cityErr="Please select the Gender";
-	}
-	else{
-		$Gender=$_POST[''];
-	}
+	 if (empty($_POST["Gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
 }
 ?>
