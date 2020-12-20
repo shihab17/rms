@@ -1,53 +1,74 @@
 <?php
-if(isset($_post['submit'])){
+include('../data/dbCon.php'); 
+if(isset($_POST['submit'])){
 	if(empty($_POST['firstname']))
 	{
 		$fnameErr= "name is required";
 	}
 	else{
-		$firstname=$_post['firstname'];
+		$firstname=$_POST['firstname'];
 	}
 	if(empty($_POST['lastname']))
 	{
 		$lnameErr= "lastname is required";
 	}
 	else{
-	$lastname=$_post['lastname'];
+	$lastname=$_POST['lastname'];
+	}
+	if(empty($_POST['username']))
+	{
+		//$lnameErr= "lastname is required";
+	}
+	else{
+	$username=$_POST['username'];
 	}
 	if(empty($_POST['phonenum']))
 	{
 		$phonenumErr= "phonenum is required";
 	}
 	else{
-	$PhoneNum=$_post['Phone Num'];
+	$PhoneNum=$_POST['phonenum'];
 	}
-	if(empty($_POST['email']))
+	if(empty($_POST['emailid']))
 	{
-		$emailErr= "email is required";
+		$emailErr= "emailid is required";
 	}
 	else{
-	$email=$_post['email'];
+	$email=$_POST['emailid'];
 	}
 	if(empty($_POST['password']))
 	{
 		$passErr= "pass is required";
 	}
 	else{
-	$Password=$_post['password'];
+	$Password=$_POST['password'];
 	}
-	if(empty($_POST['address']))
+	if(empty($_POST['Address']))
 	{
 		$addErr= "add is required";
 	}
 	else{
-	$Address=$_post['Address'];
+	$Address=$_POST['Address'];
 	}
-	if(empty($_POST['NIDNum']))
+	
+	$Gender=$_POST['Gender'];
+	if(empty($_POST['NID']))
 	{
 		$NIDNumErr= "NIDNum is required";
 	}
 	else{
 	
-	$NIDNum=$_post['NID Num'];
+	$NIDNum=$_POST['NID'];
+	
+}
+$statement = $db->prepare("insert into tbl_account (fname,lname,username,pnum,email,address,nidnum,gender,password) values (?,?,?,?,?,?,?,?,?)");
+$statement->execute(array ($firstname,$lastname,$username,$PhoneNum,$email,$Address,$NIDNum,$Gender,$Password) );
+
+$query = $db->prepare("INSERT INTO tbl_login (username,password) values (?,?)");
+$query->execute(array($username,$Password));
+
+}
+else{
+	echo "error";
 }
 ?>

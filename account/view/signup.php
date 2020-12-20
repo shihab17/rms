@@ -16,12 +16,13 @@ $firstname=$lastname=$PhoneNum=$Email=$Password=$Address=$NIDNum="";
 <center><h1>SignUp Form</h1><center>
 
 <div class="form">
-<form action = "../controller/action_signup.php" method = "post">
+<form action = "../controller/action_signup.php" method = "POST">
 <center>
 <table>
 <tr>
 <th></th>
 <th>SignUp Form</th>
+
 </tr>
 <tr>
 <td>First name:</td>
@@ -34,7 +35,12 @@ $firstname=$lastname=$PhoneNum=$Email=$Password=$Address=$NIDNum="";
 <td>Last name:</td>
 <td><input type="text" name="lastname" required></td>
 </tr>
+</tr>
+<tr>
+<td>username:</td>
+<td><input type="text" name="username" required></td>
 
+</tr>
 <tr>
 <td>Phone Num:</td>
 <td>
@@ -73,9 +79,9 @@ $firstname=$lastname=$PhoneNum=$Email=$Password=$Address=$NIDNum="";
 
 <tr>
 <td>Gender:</td>
-<td><input type="radio" name="Gender">Male
-    <input type="radio" name="Gender">Female
-	<input type="radio" name="Gender">Other
+<td><input type="radio" name="Gender" value="male">Male
+    <input type="radio" name="Gender" value="female">Female
+	<input type="radio" name="Gender" value="other">Other
    </td>
 </tr>
 
