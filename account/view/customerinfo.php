@@ -10,9 +10,9 @@
 <tr>
 	<th>Customer No</th>
 	<th>Customer Name</th>
-	<th>E-mail</th>
-	<th>Phone no</th>
-	<th>Date of Birth</th>
+	<th>Email</th>
+	<th>Phoneno</th>
+	<th>DOB</th>
 	<th>Address</th>
 	<th>ADD or REMOVE Person</th>
 	
