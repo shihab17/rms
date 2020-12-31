@@ -17,7 +17,8 @@
 <table  border= "1"  cellpadding= "25" >
 <tr>
 	<th>#</th>
-	<th>Full Name</th>
+	<th>First Name</th>
+	<th>Last Name</th>
 	<th>Username</th>
 	<th>Gender</th>
 	<th>Birthday</th>
@@ -28,19 +29,35 @@
 	<th>Salary</th>
 	<th>Action</th>
 </tr>
+<?php
+include('../data/dbConnection.php');
+$i=0;
+$stmt = $db-> prepare("SELECT * FROM tbl_emp");
+$stmt->execute(array());
+$result = $stmt-> fetchAll (PDO::FETCH_ASSOC);
+	foreach($result as $row)
+	{
+	$i++;
+	
+?>
 <tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td> <a href="../controller/action_employeeUpdate.php?empId=1" style="text-decoration:none;" >EDIT </a> ||
-<a href="../controller/action_employeeRemove.php?empId=1" style="text-decoration:none;" >REMOVE</a></td>
+<td><?php echo $i;?></td>
+<td><?php echo $row['fname'];?></td>
+<td><?php echo $row['lanme'];?></td>
+<td><?php echo $row['username'];?></td>
+<td><?php echo $row['gender'];?></td>
+<td><?php echo $row['dob'];?></td>
+<td><?php echo $row['address'];?></td>
+<td><?php echo $row['email'];?></td>
+<td><?php echo $row['phnNumber'];?></td>
+<td><?php echo $row['designation'];?></td>
+<td><?php echo $row['salary'];?></td>
+<td> <a href="../controller/action_employeeUpdate.php?empId=<?php echo $row['empId']; ?>" style="text-decoration:none;" >EDIT </a> ||
+<a href="../controller/action_employeeRemove.php?empId=<?php echo $row['empId']; ?>" style="text-decoration:none;" >REMOVE</a></td>
+</tr>
+<?php 
+	}
+?>
 </tr>
 </table>
 </center>

@@ -1,4 +1,5 @@
 <?php
+include('../data/dbConnection.php');
 $itemName=$itemDescription=$itemCat=$itemSubCat=$itemQty=$itemPrice="";
 ob_start();
 	session_start();
@@ -8,11 +9,13 @@ ob_start();
 	else{
 	$uname= $_SESSION['uname'];
 	}
+	$counter = 0;
 if(isset($_POST['formAddItems']))
 {
 	if(empty($_POST['iname']))
 	{
 		$itemNameErr="Please Enter Item Name";
+		$counter = $counter + 1;
 	}
 	else{
 		$itemName=$_POST['iname'];
@@ -20,6 +23,7 @@ if(isset($_POST['formAddItems']))
 	if(empty($_POST['idescription']))
 	{
 		$itemDescriptionErr="Please Enter Item Description";
+		$counter = $counter + 1;
 	}
 	else{
 		$itemDescription=$_POST['idescription'];
@@ -34,6 +38,7 @@ if(isset($_POST['formAddItems']))
 	if(empty($_POST['isubcat']))
 	{
 		$itemSubCatErr="Select a Sub-Cetagory";
+		$counter = $counter + 1;
 	}
 	else{
 		$itemSubCat=$_POST['isubcat'];
@@ -48,9 +53,18 @@ if(isset($_POST['formAddItems']))
 	if(empty($_POST['iprice']))
 	{
 		$itemPriceErr="Select a Cetagory";
+		$counter = $counter + 1;
 	}
 	else{
 		$itemPrice=$_POST['iprice'];
+	}
+	if($counter == 0){
+		$stmt= $db->prepare("INSERT INTO tbl_items (item_name,item_description,item_cetagory,item_subCetagory,item_quantity,price) values (?,?,?,?,?,?)");
+		$stmt->execute(array($itemName,$itemDescription,$itemCat,$itemSubCat,$itemQty,$itemPrice));
+		$sucess="Succsessfully Updated your profile information";
+	}
+	else{
+		$error="Faild! please try again";
 	}
 	$myfile= fopen("../data/item.txt","a") or die("Unable to open the file");
 	fwrite($myfile,$itemName);
@@ -71,6 +85,8 @@ if(isset($_POST['formAddItems']))
 <body>
 <?php include('../view/header.php'); ?>
 <h1>Add items</h1>
+<h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
+<h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
 <form action="../controller/action_additems.php" method="POST" >
 	<label for="iname" >Items Name</label>
 	<input type="text" name="iname" id="iname" placeholder="Enter Item Name" >

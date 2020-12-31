@@ -1,4 +1,5 @@
 <?php
+include('../data/dbConnection.php');
 $counter = 0;
 ob_start();
 	session_start();
@@ -69,11 +70,35 @@ if(isset($_POST['formAddCustomer'])){
 			$cphone=$_POST['cphone'];
 		}
 	}
-	if($counter == 0){
-		$sucess="Succsessfully Added Employee";
+	if(empty($_POST['cItemName1'])){
+		$cItemName1="";
 	}
 	else{
-		$error="Faild! Add Employee";
+		$cItemName1=$_POST['cItemName1'];
+	}
+	if(empty($_POST['cItemName2'])){
+		$cItemName2="";
+	}
+	else{
+		$cItemName2=$_POST['cItemName2'];
+	}
+	$itemName=$cItemName1." ".$cItemName2;
+	if(empty($_POST['cQuantity'])){
+		$cQntyErr="Quantity not empty";
+		$counter = $counter + 1;
+	}
+	else{
+		$cQnty=$_POST['cQuantity'];
+	}
+	$username="Customer";
+	$pass="1234";
+	if($counter == 0){
+		$stmt= $db->prepare("INSERT INTO tbl_customer (fname,lname,username,gender,email,phoneNumber,itemName,quantity,password) values (?,?,?,?,?,?,?,?,?)");
+		$stmt->execute(array($cfname,$clname,$username,$cgender,$cemail,$cphone,$itemName,$cQnty,$pass));
+		$sucess="Succsessfully Added Customer";
+	}
+	else{
+		$error="Faild! Add Customer";
 	}
 }
 ?>
@@ -128,7 +153,7 @@ if(isset($_POST['formAddCustomer'])){
 	<label for="cItemName2"> Drink</label><br>
 	<br>
 	<br>
-	<label for="" >Quantity</label>
+	<label for="cQuantity" >Quantity</label>
 	<input type="text" name="cQuantity" id="cQuantity" value="" placeholder="enter number of item" >
 	<br>
 	<br>

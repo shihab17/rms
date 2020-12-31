@@ -17,27 +17,43 @@
 <table  border= "1"  cellpadding= "25" >
 <tr>
 	<th>#</th>
-	<th>Full Name</th>
+	<th>First Name</th>
+	<th>Last Name</th>
 	<th>Gender</th>
 	<th>Email</th>
 	<th>Phone Number</th>
 	<th>Item Name</th>
 	<th>Quantity</th>
-	<th>Price</th>
+	<th>Time</th>
 	<th>Action</th>
 </tr>
+<?php
+include('../data/dbConnection.php');
+$i=0;
+$stmt = $db-> prepare("SELECT * FROM tbl_customer");
+$stmt->execute(array());
+$result = $stmt-> fetchAll (PDO::FETCH_ASSOC);
+	foreach($result as $row)
+	{
+	$i++;
+	
+?>
 <tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td> <a href="../controller/action_customerUpdate.php?customerId=1" style="text-decoration:none;" >EDIT </a> ||
-<a href="../controller/action_customerRemove.php?customerId=1" style="text-decoration:none;" >REMOVE</a></td>
+<td><?php echo $i;?></td>
+<td><?php echo $row['fname'];?></td>
+<td><?php echo $row['lname'];?></td>
+<td><?php echo $row['gender'];?></td>
+<td><?php echo $row['email'];?></td>
+<td><?php echo $row['phoneNumber'];?></td>
+<td><?php echo $row['itemName'];?></td>
+<td><?php echo $row['quantity'];?></td>
+<td><?php echo $row['datetime'];?></td>
+<td> <a href="../controller/action_customerUpdate.php?customerId=<?php echo $row['customerId']; ?>" style="text-decoration:none;" >EDIT </a> ||
+<a href="../controller/action_customerRemove.php?customerId=<?php echo $row['customerId']; ?>" style="text-decoration:none;" >REMOVE</a></td>
 </tr>
+<?php
+	}
+?>
 </table>
 </center>
 <br>
