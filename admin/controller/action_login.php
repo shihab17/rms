@@ -1,5 +1,6 @@
 <?php
-$uname=$password="";
+include('../data/dbConnection.php');
+$uname=$password=$txt="";
 if (isset ($_POST['formLogin']) )
 {
 	if(empty($_POST['uname']))
@@ -9,14 +10,14 @@ if (isset ($_POST['formLogin']) )
 	else{
 		$uname=$_POST['uname'];
 	}
-	if(empty($_POST['psw']))
+	if(empty($_POST['pwd']))
 	{
 		$passwordErr = "Password is Requierd";
 	}
 	else{
-		$password=$_POST['psw'];
+		$password=$_POST['pwd'];
 	}
-	$myfile = fopen("../data/admininfo.txt", "r") or die("Unable to open file!");
+	/*$myfile = fopen("../data/admininfo.txt", "r") or die("Unable to open file!");
 	while( $line=fgets($myfile))
 	{
 		$words = explode(",",$line);
@@ -25,6 +26,13 @@ if (isset ($_POST['formLogin']) )
 		
 	}
 	fclose($myfile);
+	setcookie($user, $pass, time() + (86400), "/"); 
+	if(isset($_COOKIE[$user])){
+		$myfile = fopen("../data/cookies.txt", "a") or die("Unable to open file!");
+		$txt=$_COOKIE[$user].$_COOKIE[$pass];
+		fwrite($myfile, $txt);
+		fclose($myfile);
+	}
 	if ($uname==$user && $password=$pass){
 		session_start();
 		$_SESSION['name'] = "resdnt";
@@ -33,6 +41,19 @@ if (isset ($_POST['formLogin']) )
 	}
 	else{
 		 $error = "Invaild Username or password";
+	}*/
+	$num_rows =0;
+	$stmt = $db-> prepare("SELECT * FROM tbl_login where username=? and password=?");
+	$stmt->execute(array($uname,$password));
+	$num_rows = $stmt->rowcount();
+	if($num_rows >0){
+		session_start();
+		$_SESSION['name'] = "resdnt";
+		$_SESSION['uname'] =$uname;
+		header ("location: ../view/index.php");
+	}
+	else{
+		$error = "Invaild Username or password";
 	}
 	
 
@@ -54,10 +75,10 @@ if (isset ($_POST['formLogin']) )
 <h4 style="color:red;"><?php if(isset($error)){ echo $error; }  ?></h4>
 <form action="" method="POST" >
   <label for="uname">Username: </label>
-  <input type="text" id="uname" name="uname" placeholder="Enter your unsername" required>
+  <input type="text" id="uname" name="uname" placeholder="Enter your unsername" >
   <span class="error"><?php if(isset($unameErr)) { echo $unameErr; }  ?></span><br><br>
   <label for="pwd">Password: </label>
-  <input type="password" id="pwd" name="pwd" placeholder="Enter your password" required>
+  <input type="password" id="pwd" name="pwd" placeholder="Enter your password" >
   <span class="error"><?php if(isset($passwordErr)){ echo $passwordErr; }  ?></span>
   <br><br>
   <input type="submit" name="formLogin" value="Login" >

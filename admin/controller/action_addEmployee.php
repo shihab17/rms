@@ -1,4 +1,5 @@
 <?php 
+include('../data/dbConnection.php');
 ob_start();
 	session_start();
 	if($_SESSION['name']!='resdnt'){
@@ -120,7 +121,10 @@ if(isset($_POST['formAddEmp']))
 		$empSalgrade=$_POST['empSalgrade'];
 		
 	}
+	$pass="1234";
 	if($counter == 0){
+		$stmt= $db->prepare("INSERT INTO tbl_emp (fname,lanme,username,gender,dob,address,email,phnNumber,designation,salary,password) values (?,?,?,?,?,?,?,?,?,?,?)");
+		$stmt->execute(array($empFName,$empLName,$empUName,$empGender,$empBirthday,$empAddress,$empEmail,$empPhn,$empdgn,$empSalgrade,$pass));
 		$sucess="Succsessfully Added Employee";
 	}
 	else{

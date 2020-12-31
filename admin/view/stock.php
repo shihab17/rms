@@ -10,10 +10,10 @@
 ?>
 <!DOCTYPE html>
 <html>
-<title>Employee</title>
+<title>Stock</title>
 <body>
 <?php include('header.php'); ?>
-<center><h1><a style="text-decoration: none;" href="addStock.php" >Add Employee</a></h1>
+<center><h1><a style="text-decoration: none;" href="addStock.php" >Add Stock</a></h1>
 <table  border= "1"  cellpadding= "25" >
 <tr>
 	<th>#</th>
