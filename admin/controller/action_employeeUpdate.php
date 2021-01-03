@@ -157,7 +157,7 @@ if(isset($_POST['formUpdateEmp']))
 	$empSalaryOld=$row['salary'];
 	}
 ?>
-<h1>Update employee</h1>
+<h1 class="headStyle">Update employee</h1>
 <h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
 <h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
 <form action="" method="POST" >
@@ -177,9 +177,9 @@ if(isset($_POST['formUpdateEmp']))
 	<br>
 	<br>
 	<label for="empGender">Gender</label>
-	<input type="radio" id="empGender" name="empGender" value="male" >Male
-	<input type="radio" id="empGender" name="empGender" value="female" >Female
-	<input type="radio" id="empGender" name="empGender" value="other" >Other
+	<input type="radio" id="empGender" name="empGender" value="male" ><span class="styleGenderInput">Male</span>
+	<input type="radio" id="empGender" name="empGender" value="female" ><span class="styleGenderInput">Female</span>
+	<input type="radio" id="empGender" name="empGender" value="other" ><span class="styleGenderInput">Other</span>
 	<span class="error" ><?php if(isset($empGenderErr)){echo $empGenderErr;} ?></span>
 	<br>
 	<br>

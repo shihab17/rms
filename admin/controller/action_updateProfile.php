@@ -80,7 +80,7 @@ if(isset($_POST['formUpdateProfile']))
 .error{color:red;}
 </style>
 <?php include('../view/header.php'); ?>
-<h1>Edit Profile</h1>
+<h1 class="headStyle">Edit Profile</h1>
 <h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
 <h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">

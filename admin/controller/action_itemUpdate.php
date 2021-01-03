@@ -101,7 +101,7 @@ $itemQuantityOld=$row['item_quantity'];
 $priceOld=$row['price'];
 }
 ?>
-<h1>Add items</h1>
+<h1 class="headStyle">Add items</h1>
 <h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
 <h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
 <form action="" method="POST" >

@@ -16,7 +16,7 @@ ob_start();
 </head>
 <body>
 <?php include('header.php'); ?>
-<h1>Add Customer</h1>
+<h1 class="headStyle">Add Customer</h1>
 <form action="../controller/action_addCustomer.php" method="POST" >
 	<label for="cfname"> First Name </label>
 	<input type="text" name="cfname" id="cfname" placeholder="Enter Customer Name"  >
@@ -27,12 +27,9 @@ ob_start();
 	<br>
 	<br>
 	<label for="cgender"> Gender</label>
-	<input type="radio" name="cgender" id="male" value="male" >
-	<label for="male"> Male </label>
-	<input type="radio" name="cgender" id="female" value="Female" >
-	<label for="female"> Female </label>
-	<input type="radio" name="cgender" id="other" value="other" >
-	<label for="other"> Other </label>
+	<input type="radio" name="cgender" id="male" value="male" ><span class="styleGenderInput">Male</span>
+	<input type="radio" name="cgender" id="female" value="Female" ><span class="styleGenderInput">Female</span>
+	<input type="radio" name="cgender" id="other" value="other" ><span class="styleGenderInput">Other</span>
 	<br>
 	<br>
 	<label for="email" > Email Address  </label>
@@ -44,10 +41,10 @@ ob_start();
 	<br>
 	<br>
 	<label for="cItemName" > Item Name </label><br>
-	<input type="checkbox" id="cItemName1" name="cItemName1" value="rice">
-	<label for="cItemName1"> Rice</label><br>
-	<input type="checkbox" id="cItemName2" name="cItemName2" value="Drink">
-	<label for="cItemName2"> Drink</label><br>
+	<input type="checkbox" class="checkStyleInput" id="cItemName1" name="cItemName1" value="rice">
+	<span class="checkStyle" for="cItemName1"> Rice</span>
+	<input type="checkbox" class="checkStyleInput" id="cItemName2" name="cItemName2" value="Drink">
+	<span class="checkStyle" for="cItemName2"> Drink</span><br>
 	<br>
 	<br>
 	<label for="" >Quantity</label>

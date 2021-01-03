@@ -1,6 +1,16 @@
 <?php
 include('../data/dbConnection.php');
 $uname=$password=$txt="";
+if (isset($_POST['formAccountLogin'])) {
+	header("Location: ../../account/view/login.php");
+}
+if (isset($_POST['formOwnerLogin'])) {
+	header("Location: ../../owner/view/login.php");
+}
+
+if (isset($_POST['formUserLogin'])) {
+	header("Location: ../../rasel2/view/login.php");
+}
 if (isset ($_POST['formLogin']) )
 {
 	if(empty($_POST['uname']))
@@ -71,31 +81,44 @@ if (isset ($_POST['formLogin']) )
 .error{
 	color:red;
 }
+.styleSubmit1{
+    width: 18%;
+    background-color: green;
+    color: white;
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 </style>
 <script>
 	function validate() {
-		var uname = document.getElementById('uname').value;
-		var pwd = document.getElementById('pwd').value;
+		var a = document.getElementById('uname').value;
+		var b = document.getElementById('pwd').value;
 		// console.log(x);
-		if(uname == "") {
+		if(a == "") {
 			document.getElementById('errorMsg').innerHTML = "Username is empty";
 			document.getElementById('errorMsg').style.color = "red";
 			return false;	
 		}
-		// console.log(x);
-		if(pwd == "") {
+		if(b == "") {
 			document.getElementById('errorMsg').innerHTML = "Password is empty";
 			document.getElementById('errorMsg').style.color = "red";
 			return false;	
 		}
+		
 	}
 </script>
 <body>
 <div class="lgCss">
-<h1>Login</h1>
+<form action="../controller/action_login.php" method="POST">
+<input type="submit" class="styleSubmit1" name="formAccountLogin" value=" Account Login" >
+<input type="submit" class="styleSubmit1" name="formOwnerLogin" value=" Owner Login" >
+<input type="submit" class="styleSubmit1" name="formUserLogin" value=" User Login" >
+</form>
+<h1 class="headStyle">Login</h1>
 <h4 style="color:red;"><?php if(isset($error)){ echo $error; }  ?>
 </h4>
-<form action="" method="POST" onsubmit=" return validate() >
+
+<form action="" method="POST" onsubmit=" return validate()" >
   <label for="uname">Username: </label>
   <input type="text" class="inputStyle" id="uname" name="uname" placeholder="Enter Your Username" >
   <br><br>

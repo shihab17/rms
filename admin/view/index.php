@@ -11,7 +11,7 @@
 	$cookie_value= date("Y-m-d",time());
 	setcookie($uname, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 	if(!isset($_COOKIE[$uname])) {
-	  echo "Cookie named '" . $uname . "' is not set!";
+	  echo "Cookie named" . $uname . " is not set!";
 	}
 	else {
 	  $myfile = fopen("../data/cookies.txt", "a") or die("Unable to open file!");
@@ -20,6 +20,7 @@
 	  fclose($myfile);
 	}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

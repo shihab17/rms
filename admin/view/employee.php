@@ -11,11 +11,16 @@
 <!DOCTYPE html>
 <html>
 <title>Employee</title>
+<link rel="stylesheet" href="style.css">
+<script>
+	function confirm_delete() {
+		return confirm("are you want to delete this data?");
+	}
+</script>
 <body>
 <?php include('header.php'); ?>
-<link rel="stylesheet" href="style.css">
-<center><h1><a style="text-decoration: none;" href="addEmployee.php" >Add Employee</a></h1>
-<table  border= "1"  cellpadding= "25" >
+<h1 class="headStyle"><a class="anchorStyle" href="addEmployee.php" >Add Employee</a></h1>
+<table  >
 <tr>
 	<th>#</th>
 	<th>First Name</th>
@@ -33,7 +38,7 @@
 <?php
 include('../data/dbConnection.php');
 $i=0;
-$stmt = $db-> prepare("SELECT * FROM tbl_emp");
+$stmt = $db-> prepare("SELECT * FROM tbl_emp order by empId desc ");
 $stmt->execute(array());
 $result = $stmt-> fetchAll (PDO::FETCH_ASSOC);
 	foreach($result as $row)
@@ -54,14 +59,13 @@ $result = $stmt-> fetchAll (PDO::FETCH_ASSOC);
 <td><?php echo $row['designation'];?></td>
 <td><?php echo $row['salary'];?></td>
 <td> <a href="../controller/action_employeeUpdate.php?empId=<?php echo $row['empId']; ?>" style="text-decoration:none;" >EDIT </a> ||
-<a href="../controller/action_employeeRemove.php?empId=<?php echo $row['empId']; ?>" style="text-decoration:none;" >REMOVE</a></td>
+<a onclick= "return confirm_delete();" href="../controller/action_employeeRemove.php?empId=<?php echo $row['empId']; ?>" style="text-decoration:none;" >REMOVE</a></td>
 </tr>
 <?php 
 	}
 ?>
 </tr>
 </table>
-</center>
 <br>
 <br>
 <?php include('footer.php'); ?>

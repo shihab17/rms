@@ -14,7 +14,7 @@ ob_start();
 <link rel="stylesheet" href="style.css">
 <body>
 <?php include('header.php'); ?>
-<h1>Add employee</h1>
+<h1 class="headStyle">Add employee</h1>
 <form action="../controller/action_addEmployee.php" method="POST" >
 	<label for="empFName">First Name </label>
 	<input type="text" id="empFName" name="empFName" value="" placeholder="Enter first name" required >
@@ -29,9 +29,9 @@ ob_start();
 	<br>
 	<br>
 	<label for="empGender">Gender</label>
-	<input type="radio" id="empGender" name="empGender" value="male" >Male
-	<input type="radio" id="empGender" name="empGender" value="female" >Female
-	<input type="radio" id="empGender" name="empGender" value="other" >Other
+	<input  type="radio" id="empGender" name="empGender" value="male" ><span class="styleGenderInput">Male</span>
+	<input  type="radio" id="empGender" name="empGender" value="female" ><span class="styleGenderInput">Female</span>
+	<input  type="radio" id="empGender" name="empGender" value="other" ><span class="styleGenderInput">Other</span>
 	<br>
 	<br>
 	<label for="empBirthday" >Birthday</label>

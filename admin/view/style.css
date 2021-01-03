@@ -22,6 +22,14 @@ nav{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;
 }
 
+.styleForm{
+    text-align: center;
+}
+.styleLabel{
+    background-color: yellow;
+    
+}
+
 #wc{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 40px;
@@ -35,4 +43,107 @@ body{
     background-size: cover; /* Resize the background image to cover the entire container */
     color:honeydew;
    
+}
+form{
+    text-align: center;
+}
+label {
+    font-family:  Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: xx-large;
+    color:rgb(253, 0, 0);
+    height: 40px;
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 50px;
+    float:left;
+    background-color: rgba(192, 192, 192, 0.986);
+    font-weight: bold;
+    
+}
+input, textarea,select{
+    height: 40px;
+    width: 60%;
+    border: 1px solid #000;
+    margin-top: 10px;
+    background-color: rgba(217, 218, 177, 0.61);
+    font-size: large;
+}
+textarea{
+    height: 80px;
+}
+
+input[type="radio"]{
+   width: 2%;
+}
+.styleGenderInput{
+    background-color: goldenrod;
+    font-size: 28px;
+    margin:5px;
+    border-radius: 5px;
+    padding: 5px;;
+}
+.checkStyle{
+    background-color: goldenrod;
+    font-size: xx-large;
+}
+.checkStyleInput{
+    height: 40px;
+    width: 2%;
+    border: 1px solid #000;
+    margin-top: 0px;
+    background-color: rgba(217, 218, 177, 0.61);
+    font-size: large;
+}
+input[type="submit"]{
+    background-color:rgba(243, 71, 71, 0.76);
+    width: 35%;
+    color:white;
+    font-size: x-large;
+    border-radius: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.headStyle{
+    text-align: center;
+    margin-top: 50px;
+    font-family: sans-serif;
+    color: seagreen;
+    font-size:40px;
+}
+.anchorStyle{
+    text-decoration:none;
+    color:green;
+    background-color:white;
+    padding:10px;
+    font-size:xx-large;
+    border-radius:10px;
+    
+}
+footer{
+    text-align: center;
+    margin-top: 200px;
+    background-color: slategrey;
+    font-size: large;
+    border-radius:20px;
+}
+table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: large;
+}
+td,th{
+    border: 3px solid rgba(221, 221, 221, 0.568);
+    padding: 8px;
+}
+tr:hover {background-color: rgba(214, 19, 19, 0.527);}
+th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+tr{
+    background-color:#ddcaca3d;
 }

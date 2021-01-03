@@ -14,7 +14,7 @@ ob_start();
 <link rel="stylesheet" href="style.css">
 <body>
 
-<h1>Add Stock</h1>
+<h1 class="headStyle">Add Stock</h1>
 <form action="" method="POST">
 	<label for="stkName">Item Name</label>
 	<input type="text" name="stkName" id="stkName" value=""  >

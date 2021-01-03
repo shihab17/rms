@@ -12,11 +12,16 @@ ob_start();
 <html>
 <title>Items</title>
 <link rel="stylesheet" href="style.css">
+<style>
+	
+}
+</style>
 <body>
 <?php include('header.php'); ?>
-<h1>Add items</h1>
+<div class="styleForm">
+<h1 class="headStyle">Add items</h1>
 <form action="../controller/action_additems.php" method="POST" >
-	<label for="iname" >Items Name</label>
+	<label class="styleLabel" for="iname" >Items Name</label>
 	<input type="text" name="iname" id="iname" placeholder="Enter Item Name" >
 	<br>
 	<br>
@@ -55,6 +60,8 @@ ob_start();
 
 	
 </form>
+</div>
+
 <br>
 <br>
 <?php include('footer.php'); ?>
