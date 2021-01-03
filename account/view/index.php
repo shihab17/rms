@@ -11,17 +11,17 @@ else
 }
 
 
-$cookie_value= date("Y-m-d",time());
-    setcookie($username, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-    if(!isset($_COOKIE[$username])) {​​​​​
-      echo "Cookie named" . $username . "is not set!";
-    }​​​​​
-    else {​​​​​
-      $myfile = fopen("../data/cookies.txt", "a") or die("Unable to open file!");
-      $txt="Username: ".$username." ". "Time: ".$_COOKIE[$username]."<br>";
-      fwrite($myfile, $txt);
-      fclose($myfile);
-    }​​​​​
+// $cookie_value= date("Y-m-d",time());
+    // setcookie($username, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    // if(!isset($_COOKIE[$username])) {​​​​​
+      // echo "Cookie named" . $username . "is not set!";
+    // }​​​​​
+    // else {​​​​​
+      // $myfile = fopen("../data/cookies.txt", "a") or die("Unable to open file!");
+      // $txt="Username: ".$username." ". "Time: ".$_COOKIE[$username]."<br>";
+      // fwrite($myfile, $txt);
+      // fclose($myfile);
+    // }​​​​​
 ?>
 <!DOCTYPE html>
 <html>
