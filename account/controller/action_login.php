@@ -5,12 +5,12 @@
 	  	$uname = "";
 	  	 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-			if(empty($_REQUEST["uname"])) {
+			if(empty($_REQUEST["username"])) {
 				$unameErr= "Name is required";
 				
 			}
 			else{
-				$uname= $_REQUEST["uname"];
+				$username= $_REQUEST["username"];
 				
 			}
 			if(empty($_REQUEST["password"])) {
@@ -41,12 +41,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 				// echo "<a href='../view/login.php'>try again </a>";
 			// }
 			$stmt = $db-> prepare("SELECT * FROM tbl_login where username=? and password=?");
-			$stmt->execute(array($uname,$pass));
+			$stmt->execute(array($username,$pass));
 			$num_rows = $stmt->rowcount();
 			if($num_rows>0){
 				session_start();
 				$_SESSION['name']="name";
-				$_SESSION['uname']=$user;
+				$_SESSION['username']=$username;
 				header("location: ../view/index.php");
 			}
 			else{
