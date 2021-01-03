@@ -106,6 +106,7 @@ if(isset($_POST['formAddCustomer'])){
 <html>
 <head>
 <title>Add customer</title>
+<link rel="stylesheet" href="../view/style.css">
 </head>
 <body>
 <style>

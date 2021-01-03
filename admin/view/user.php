@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
 <title>User</title>
+<link rel="stylesheet" href="style.css">
 <body>
 <?php include('header.php'); ?>
 <center><h1><a href="../view/employee.php">Employee</a></h1>

@@ -134,6 +134,7 @@ if(isset($_POST['formUpdateEmp']))
 <!DOCTYPE html>
 <html>
 <title>Update Employee</title>
+<link rel="stylesheet" href="../view/style.css">
 <body>
 <style>
 .error{color:red;}

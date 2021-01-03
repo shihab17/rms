@@ -137,6 +137,7 @@ if(isset($_POST['formAddEmp']))
 <!DOCTYPE html>
 <html>
 <title>Add Employee</title>
+<link rel="stylesheet" href="../view/style.css">
 <body>
 <style>
 .error{color:red;}

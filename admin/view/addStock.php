@@ -11,6 +11,7 @@ ob_start();
 <!DOCTYPE html>
 <html>
 <title>Add Stock</title>
+<link rel="stylesheet" href="style.css">
 <body>
 
 <h1>Add Stock</h1>

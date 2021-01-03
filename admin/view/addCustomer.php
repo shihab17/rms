@@ -12,6 +12,7 @@ ob_start();
 <html>
 <head>
 <title>Add customer</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <?php include('header.php'); ?>

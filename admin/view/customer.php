@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
 <title>Employee</title>
+<link rel="stylesheet" href="style.css">
 <body>
 <?php include('header.php'); ?>
 <center><h1><a style="text-decoration: none;" href="addCustomer.php" >Add Customer</a></h1>

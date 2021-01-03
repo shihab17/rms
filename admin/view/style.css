@@ -1,0 +1,38 @@
+nav{
+    position:fixed;
+    background-color:green;
+    width:99%;
+    font-size:26px;
+    border:royalblue solid 2px;
+    border-radius: 15px;
+    
+
+}
+.headA{
+    color:white;
+    text-decoration: none;
+    padding:4px;
+    font-family: Arial;
+}
+.rms{
+    text-decoration:none;
+    color: yellow;
+    padding:20px 40PX 20PX 0PX;
+    font-size:28px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;
+}
+
+#wc{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    color:greenyellow;
+   
+}
+body{
+    background-image: url("../view/images/Tio_Luncin.png");
+	background-repeat:no-repeat;
+	background-position: center; /* Center the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    color:honeydew;
+   
+}

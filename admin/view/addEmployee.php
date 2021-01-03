@@ -11,6 +11,7 @@ ob_start();
 <!DOCTYPE html>
 <html>
 <title>Add Employee</title>
+<link rel="stylesheet" href="style.css">
 <body>
 <?php include('header.php'); ?>
 <h1>Add employee</h1>
