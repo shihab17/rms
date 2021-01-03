@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
 <title>Profile</title>
+<link rel="stylesheet" href="style.css">
 <body>
 <?php include('header.php'); ?>
 <center>

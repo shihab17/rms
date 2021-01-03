@@ -74,6 +74,7 @@ if(isset($_POST['formUpdateProfile']))
 <!DOCTYPE html>
 <html>
 <title>Edit Profile</title>
+<link rel="stylesheet" href="../view/style.css">
 <body>
 <style>
 .error{color:red;}

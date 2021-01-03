@@ -11,6 +11,8 @@
 <!DOCTYPE html>
 <html>
 <title>Items</title>
+<link rel="stylesheet" href="style.css">
+
 <body>
 <?php include('header.php'); ?>
 <center><h1><a style="text-decoration: none;" href="addItems.php" >Add items</a></h1>

@@ -13,6 +13,7 @@
 <title>Employee</title>
 <body>
 <?php include('header.php'); ?>
+<link rel="stylesheet" href="style.css">
 <center><h1><a style="text-decoration: none;" href="addEmployee.php" >Add Employee</a></h1>
 <table  border= "1"  cellpadding= "25" >
 <tr>

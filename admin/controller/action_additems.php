@@ -82,12 +82,55 @@ if(isset($_POST['formAddItems']))
 <!DOCTYPE html>
 <html>
 <title>Items</title>
+<link rel="stylesheet" href="../view/style.css">
+<script>
+	function validate()
+	{
+		var iname = document.getElementById('iname').value;
+		var idescription = document.getElementById('idescription').value;
+		var icat = document.getElementById('icat').value;
+		var isubcat = document.getElementById('isubcat').value;
+		var iQty = document.getElementById('iQty').value;
+		var iprice = document.getElementById('iprice').value;
+		// console.log(x);
+		if(iname == "") {
+			document.getElementById('errorMsg').innerHTML = "Item is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(idescription == "") {
+			document.getElementById('errorMsg').innerHTML = "Description is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(icat == "") {
+			document.getElementById('errorMsg').innerHTML = "Category is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(isubcat == "") {
+			document.getElementById('errorMsg').innerHTML = "Sub Category is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(iQty == "") {
+			document.getElementById('errorMsg').innerHTML = "Quantity is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(iprice == "") {
+			document.getElementById('errorMsg').innerHTML = "Price is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+	}
+</script>
 <body>
 <?php include('../view/header.php'); ?>
 <h1>Add items</h1>
 <h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
 <h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
-<form action="../controller/action_additems.php" method="POST" >
+<form action="../controller/action_additems.php" method="POST" onsubmit="return validate()">
 	<label for="iname" >Items Name</label>
 	<input type="text" name="iname" id="iname" placeholder="Enter Item Name" >
 	<span class="error" ><?php if(isset($itemNameErr)){echo $itemNameErr;} ?></span>

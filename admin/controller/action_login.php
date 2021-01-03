@@ -42,6 +42,7 @@ if (isset ($_POST['formLogin']) )
 	else{
 		 $error = "Invaild Username or password";
 	}*/
+	
 	$num_rows =0;
 	$stmt = $db-> prepare("SELECT * FROM tbl_login where username=? and password=?");
 	$stmt->execute(array($uname,$password));
@@ -61,28 +62,48 @@ if (isset ($_POST['formLogin']) )
 }
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<title>Login</title>
+<link rel="stylesheet" href="../view/login.css">
 <style>
 .error{
 	color:red;
 }
 </style>
-<!DOCTYPE html>
-<html>
-<title>Login</title>
+<script>
+	function validate() {
+		var uname = document.getElementById('uname').value;
+		var pwd = document.getElementById('pwd').value;
+		// console.log(x);
+		if(uname == "") {
+			document.getElementById('errorMsg').innerHTML = "Username is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		// console.log(x);
+		if(pwd == "") {
+			document.getElementById('errorMsg').innerHTML = "Password is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+	}
+</script>
 <body>
-
+<div class="lgCss">
 <h1>Login</h1>
-<h4 style="color:red;"><?php if(isset($error)){ echo $error; }  ?></h4>
-<form action="" method="POST" >
+<h4 style="color:red;"><?php if(isset($error)){ echo $error; }  ?>
+</h4>
+<form action="" method="POST" onsubmit=" return validate() >
   <label for="uname">Username: </label>
-  <input type="text" id="uname" name="uname" placeholder="Enter your unsername" >
-  <span class="error"><?php if(isset($unameErr)) { echo $unameErr; }  ?></span><br><br>
-  <label for="pwd">Password: </label>
-  <input type="password" id="pwd" name="pwd" placeholder="Enter your password" >
-  <span class="error"><?php if(isset($passwordErr)){ echo $passwordErr; }  ?></span>
+  <input type="text" class="inputStyle" id="uname" name="uname" placeholder="Enter Your Username" >
   <br><br>
-  <input type="submit" name="formLogin" value="Login" >
+  <label for="pwd">Password: </label>
+  <input type="password" class="inputStyle" id="pwd" name="pwd" placeholder="Enter Your Password" >
+  <br><br>
+  <input type="submit" class="styleSubmit" name="formLogin" value="Login" >
 </form>
-
+</div>
 </body>
 </html>

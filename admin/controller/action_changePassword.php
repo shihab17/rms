@@ -47,6 +47,7 @@ if(isset($_POST['formCngPass']))
 <!DOCTYPE html>
 <html>
 <title>Change Password</title>
+<link rel="stylesheet" href="../view/style.css">
 <body>
 <style>
 .error{

@@ -85,11 +85,12 @@ if(isset ($_REQUEST['itemId']) )
 <!DOCTYPE html>
 <html>
 <title>Items</title>
+<link rel="stylesheet" href="../view/style.css">
 <body>
 <?php include('../view/header.php'); 
 
-$stmt = $db-> prepare("SELECT * FROM tbl_items");
-$stmt->execute(array());
+$stmt = $db-> prepare("SELECT * FROM tbl_items where itemId=?");
+$stmt->execute(array($itemId));
 $result = $stmt-> fetchAll (PDO::FETCH_ASSOC);
 foreach($result as $row){
 $itemNameOld=$row['item_name'];
