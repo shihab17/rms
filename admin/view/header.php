@@ -6,6 +6,6 @@
 <a class="headA" href="../view/item.php">Items</a>
 <a class="headA" href="../view/stock.php">Mantain stock</a>
 <a class="headA" href="#">Notification</a>
-<a class="headA" href="#">Salary</a>
+<a class="headA" href="../view/salary.php">Salary</a>
 <a class="headA" href="../controller/action_logout.php">Logout</a>
 </nav></br></center>
