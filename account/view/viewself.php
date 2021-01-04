@@ -95,7 +95,72 @@ if(isset($_POST['Updatedata']))
 
 
 </head>
-
+<script>
+	function validate() {
+		var fname = document.getElementById('fname').value;
+		var lname = document.getElementById('lname').value;
+		var email = document.getElementById('email').value;
+		var address = document.getElementById('address').value;
+		var roadno = document.getElementById('roadno').value;
+		var area = document.getElementById('area').value;
+		var Occupation = document.getElementById('Occupation').value;
+		var Number = document.getElementById('Number').value;
+		var city = document.getElementById('city').value;
+		var Gender = document.getElementById('Gender').value;
+		// console.log(x);
+		if(fname == "") {
+			document.getElementById('errorMsg').innerHTML = "fname is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		// console.log(x);
+		if(lname == "") {
+			document.getElementById('errorMsg').innerHTML = "lname is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(email == "") {
+			document.getElementById('errorMail').innerHTML = "email is empty";
+			document.getElementById('errorMail').style.color = "red";
+			return false;	
+		}
+		if(address == "") {
+			document.getElementById('errorMsg').innerHTML = "address is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(roadno == "") {
+			document.getElementById('errorMsg').innerHTML = "roadno is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(area == "") {
+			document.getElementById('errorMsg').innerHTML = "area is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(Occupation == "") {
+			document.getElementById('errorMsg').innerHTML = "Occupation is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(Number == "") {
+			document.getElementById('errorMsg').innerHTML = "Number is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(city == "") {
+			document.getElementById('errorMsg').innerHTML = "city is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(Gender == "") {
+			document.getElementById('errorMsg').innerHTML = "Gender is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+	}
+</script>
 <body>
 <?php include('header.php'); 
 
@@ -115,7 +180,7 @@ $stmt = $db-> prepare("SELECT * FROM tbl_account where username=?");
 ?>
 <center><h1>SELF INFORMATION</h1></center>
 <div class="INFROMATION">
-<form action = "" method = "post">
+<form action = "" method = "post" onsubmit=" return validate()>
 <h2>Please Fill In All Details in Block Letters</h2>
 <label>First Name:</label>
 <input type="text" name="firstname" value="<?php echo $fname;?>" required><br><br>
