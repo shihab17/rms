@@ -107,16 +107,54 @@ if(isset($_POST['formAddCustomer'])){
 <head>
 <title>Add customer</title>
 <link rel="stylesheet" href="../view/style.css">
+<script>
+function validate() {
+		var cfnamea = document.getElementById('cfname').value;
+		var clname = document.getElementById('clname').value;
+		var email = document.getElementById('email').value;
+		var cphone = document.getElementById('cphone').value;
+		var cQuantity = document.getElementById('cQuantity').value;
+		// console.log(x);
+		if(cfnamea == "") {
+			document.getElementById('errorMsg').innerHTML = "First name is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(clname == "") {
+			document.getElementById('errorMsg').innerHTML = "Last Name is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		
+		if(email == "") {
+			document.getElementById('errorMsg').innerHTML = "email is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		
+		if(cphone == "") {
+			document.getElementById('errorMsg').innerHTML = "Phone Number is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(cQuantity == "") {
+			document.getElementById('errorMsg').innerHTML = quantity is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		
+	}
+</script>
 </head>
 <body>
 <style>
 .error{color:red;}
 </style>
 <?php include('../view/header.php'); ?>
-<h1>Add Customer</h1>
+<h1 class="headStyle">Add Customer</h1>
 <h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
 <h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
-<form action="../controller/action_addCustomer.php" method="POST" >
+<form action="../controller/action_addCustomer.php" method="POST" onsubmit= "return validate()" >
 	<label for="cfname"> First Name </label>
 	<input type="text" name="cfname" id="cfname" placeholder="Enter Customer Name" required >
 	<span class="error" ><?php if(isset($cfnameErr)){echo $cfnameErr;} ?></span>
@@ -128,12 +166,9 @@ if(isset($_POST['formAddCustomer'])){
 	<br>
 	<br>
 	<label for="cgender"> Gender</label>
-	<input type="radio" name="cgender" id="male" value="male" required>
-	<label for="male"> Male </label>
-	<input type="radio" name="cgender" id="female" value="Female" >
-	<label for="female"> Female </label>
-	<input type="radio" name="cgender" id="other" value="other" >
-	<label for="other"> Other </label>
+	<input type="radio" name="cgender" id="male" value="male" required><span class="styleGenderInput">Male</span>
+	<input type="radio" name="cgender" id="female" value="Female" ><span class="styleGenderInput">Female</span>
+	<input type="radio" name="cgender" id="other" value="other" ><span class="styleGenderInput">other</span>
 	<span class="error" ><?php if(isset($cgenderErr)){echo $cgenderErr;} ?></span>
 	<br>
 	<br>

@@ -5,7 +5,7 @@
     color:Yellow;
     font-weight: bold;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-   
+   margin-bottom: 150px;
 }
 body{
     background-image: url("../view/images/Tio_Luncin.png");
@@ -37,3 +37,4 @@ input::placeholder{
     font-size: xx-large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+

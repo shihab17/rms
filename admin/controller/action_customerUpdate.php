@@ -136,7 +136,7 @@
         
     }
  ?>
-<h1>Update Customer</h1>
+<h1 class="headStyle">Update Customer</h1>
 <h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
 <h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
 <form action="" method="POST" >
@@ -156,12 +156,9 @@
     <br>
     <br>
 	<label for="cgender"> Gender</label>
-	<input type="radio" name="cgender" id="male" value="male" required>
-	<label for="male"> Male </label>
-	<input type="radio" name="cgender" id="female" value="Female" >
-	<label for="female"> Female </label>
-	<input type="radio" name="cgender" id="other" value="other" >
-	<label for="other"> Other </label>
+	<input type="radio" name="cgender" id="male" value="male" required><span class="styleGenderInput">Male</span>
+	<input type="radio" name="cgender" id="female" value="Female" ><span class="styleGenderInput">Female</span>
+	<input type="radio" name="cgender" id="other" value="other" ><span class="styleGenderInput">Orther</span>
 	<span class="error" ><?php if(isset($cgenderErr)){echo $cgenderErr;} ?></span>
 	<br>
 	<br>
@@ -176,10 +173,10 @@
 	<br>
 	<br>
 	<label for="cItemName" > Item Name </label><br>
-	<input type="checkbox" id="cItemName1" name="cItemName1" value="rice">
-	<label for="cItemName1"> Rice</label><br>
-	<input type="checkbox" id="cItemName2" name="cItemName2" value="Drink">
-	<label for="cItemName2"> Drink</label><br>
+	<input type="checkbox" class="checkStyleInput" id="cItemName1" name="cItemName1" value="rice">
+	<span class="checkStyle" for="cItemName1"> Rice</span>
+	<input type="checkbox" class="checkStyleInput" id="cItemName2" name="cItemName2" value="Drink">
+	<span class="checkStyle" for="cItemName2"> Drink</span><br>
 	<br>
 	<br>
 	<label for="cQuantity" >Quantity</label>

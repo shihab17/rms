@@ -1,16 +1,18 @@
 <?php 
 include('../data/dbConnection.php');
 ob_start();
-	session_start();
-	if($_SESSION['name']!='resdnt'){
-		header("location: ../view/login.php");
-	}
-	else{
-	$uname= $_SESSION['uname'];
-	}
+session_start();
+if($_SESSION['name']!='resdnt'){
+	header("location: ../view/login.php");
+}
+else{
+$uname= $_SESSION['uname'];
+}
+
 if(isset($_POST['formAddEmp']))
 {
 	$counter = 0;
+	
 	if(empty($_POST['empFName']))
 	{
 		$empFNameErr ="First Name is reqierd";
@@ -48,7 +50,21 @@ if(isset($_POST['formAddEmp']))
 			$empUNameErr = "username is not valid, please type minimum 3 Letters";//User name is Invaild.
 			$counter = $counter + 1;
 		}
-		$empUName=$_POST['empUName'];
+		else {
+			$empUer=$_POST['empUName'];
+			$query = $db-> prepare("SELECT * FROM tbl_emp where username=? ");
+			$query->execute(array($empUer));
+			$num_rows = $query->rowcount();
+			if($num_rows >0)
+			{	
+				$empUNameErr = "This username already taken";//User name is Invaild.
+				$counter = $counter + 1;
+			}
+			else{
+				$empUName=$_POST['empUName'];
+			}
+		}
+		
 	}
 	if(empty($_POST['empGender']))
 	{
@@ -138,15 +154,73 @@ if(isset($_POST['formAddEmp']))
 <html>
 <title>Add Employee</title>
 <link rel="stylesheet" href="../view/style.css">
-<body>
+<script>
+	function validate() {
+		var empFName = document.getElementById("empFName").value;
+		var empLName = document.getElementById("empLName").value;
+		var empUName = document.getElementById("empUName").value;
+		var empGender = document.getElementById("empGender").value;
+		var empBirthday = document.getElementById("empBirthday").value;
+		var empAddress = document.getElementById("empAddress").value;
+		var empEmail = document.getElementById("empEmail").value;
+		var empPhn = document.getElementById("empPhn").value;
+		// console.log(x);
+		if(empFName == "") {
+			document.getElementById('errorMsg').innerHTML = "First name is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(empLName == "") {
+			document.getElementById('errorMsg').innerHTML = "Last name is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(empUName == "") {
+			document.getElementById('errorMsg').innerHTML = "Username is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(empGender == "") {
+			document.getElementById('errorMsg').innerHTML = "Gender is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(empBirthday == "") {
+			document.getElementById('errorMsg').innerHTML = "Birthday is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(empAddress == "") {
+			document.getElementById('errorMsg').innerHTML = "Address is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(empEmail == "") {
+			document.getElementById('errorMsg').innerHTML = "Email is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		if(empPhn == "") {
+			document.getElementById('errorMsg').innerHTML = "Phone number is empty";
+			document.getElementById('errorMsg').style.color = "red";
+			return false;	
+		}
+		
+		
+	}
+</script>
 <style>
 .error{color:red;}
 </style>
+<body>
+
 <?php include('../view/header.php'); ?>
-<h1>Add employee</h1>
-<h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
+<h1 class="headStyle">Add employee</h1>
+<center><h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
 <h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
-<form action="../controller/action_addEmployee.php" method="POST" >
+<h2 class="error" ><?php if(isset($empUNameErr)){echo $empUNameErr;} ?></h2>
+	</center>
+<form action="../controller/action_addEmployee.php" method="POST" onclick="retrun validate()" >
 	<label for="empFName">First Name </label>
 	<input type="text" id="empFName" name="empFName" value="" placeholder="Enter first name" required >
 	<span class="error" ><?php if(isset($empFNameErr)){echo $empFNameErr;} ?></span>
@@ -159,7 +233,6 @@ if(isset($_POST['formAddEmp']))
 	<br>
 	<label for="empUName">Username </label>
 	<input type="text" id="empUName" name="empUName" value="" placeholder="Enter username" required>
-	<span class="error" ><?php if(isset($empUNameErr)){echo $empUNameErr;} ?></span>
 	<br>
 	<br>
 	<label for="empGender">Gender</label>

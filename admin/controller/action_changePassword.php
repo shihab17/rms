@@ -55,7 +55,7 @@ if(isset($_POST['formCngPass']))
 }
 </style>
 <?php include('../view/header.php'); ?>
-<h2>Change Password</h2>
+<h2 class="headStyle">Change Password</h2>
 <span class= "success" ><?php if (isset($success)){echo $success;} ?></span><br>
 <span class="error" ><?php if(isset($error_message)){echo $error_message;} ?></span>
 <form action="" method="POST" >

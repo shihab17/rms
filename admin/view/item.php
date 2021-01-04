@@ -12,10 +12,14 @@
 <html>
 <title>Items</title>
 <link rel="stylesheet" href="style.css">
-
+<script>
+	function confirm_delete() {
+		return confirm("are you want to delete this data?");
+	}
+</script>
 <body>
 <?php include('header.php'); ?>
-<center><h1><a style="text-decoration: none;" href="addItems.php" >Add items</a></h1>
+<center><h1 class="headStyle"><a class="anchorStyle" href="addItems.php" >Add items</a></h1>
 <table  border= "1"  cellpadding= "25" >
 <tr>
 	<th>#</th>
@@ -47,7 +51,7 @@ $result = $stmt-> fetchAll (PDO::FETCH_ASSOC);
 <td><?php echo $row['item_quantity'];?></td>
 <td><?php echo $row['price'];?></td>
 <td> <a href="../controller/action_itemUpdate.php?itemId=<?php echo $row['itemId']; ?>" style="text-decoration:none;" >EDIT </a> ||
-<a href="../controller/action_itemRemove.php?itemId=<?php echo $row['itemId']; ?>" style="text-decoration:none;" >REMOVE</a></td>
+<a onclick= "return confirm_delete();" href="../controller/action_itemRemove.php?itemId=<?php echo $row['itemId']; ?>" style="text-decoration:none;" >REMOVE</a></td>
 </tr>
 <?php 
 	}

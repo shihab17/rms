@@ -127,12 +127,12 @@ if(isset($_POST['formAddItems']))
 </script>
 <body>
 <?php include('../view/header.php'); ?>
-<h1>Add items</h1>
+<h1 class="headStyle">Add items</h1>
 <h3 style="color:green;" ><?php if(isset($sucess)){echo $sucess;} ?></h3>
 <h3 style="color:red;" ><?php if(isset($error)){echo $error;} ?></h3>
 <form action="../controller/action_additems.php" method="POST" onsubmit="return validate()">
 	<label for="iname" >Items Name</label>
-	<input type="text" name="iname" id="iname" placeholder="Enter Item Name" >
+	<input type="text" name="iname" id="iname" value="" placeholder="Enter Item Name" >
 	<span class="error" ><?php if(isset($itemNameErr)){echo $itemNameErr;} ?></span>
 	<br>
 	<br>
