@@ -69,9 +69,21 @@ form,input[type="button"]:hover{background-color:green;}
 </head>
 <body>
 
-
-<?php include('header.php');?>
+<div class="box">
+<ul type="none">
+   <li><a href="">HOME </a></li>
+     <li><a href="">MENU </a></li>
+   <li><a href="">SELF INFORMATION </a></li>
+   <li><a href="">CUSTOMER INFORMATION </a></li>
+      <li><a href="">CHANGE E-MAIL ID </a></li>
+   <li><a href="">SIGN UP </a></li>
+   <li><a href="">PAYMENT SLIP </a></li>
+    <li><a href="">SETTINGS </a></li>
+   <li><a href=""> LOGOUT</a></li>
+   </ul>
+ </div>
 <div class="wd">
+
    <h1>welcome To RMS!<h1/>
    
    <h4>If you want food captions that are specific to food types, scroll down to the bottom of the page to see the dozens of food-specific captions we’ve written for you. </h4>

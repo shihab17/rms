@@ -9,6 +9,7 @@
      <a href="signup.php">SIGN UP</a> |
 	 <a href="makebill.php">PAYMENT SLIP</a> |
 	   <a href="login.php">LOGOUT</a> |
+	    <a href="Booking.php">Booking</a> |
    </center>
   
 </nav>

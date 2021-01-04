@@ -3,8 +3,8 @@
 <body>
 
 <div id="demo">
-<h1>The XMLHttpRequest Object</h1>
-<button type="button" onclick="loadDoc()">Change Content</button>
+<h1>Seat Booking</h1>
+<button type="button" onclick="loadDoc()">Booking Now</button>
 </div>
 
 <script>
@@ -16,7 +16,7 @@ function loadDoc() {
       this.responseText;
     }
   };
-  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.open("GET", "ajax.txt", true);
   xhttp.send();
 }
 </script>
