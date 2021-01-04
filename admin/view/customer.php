@@ -18,7 +18,7 @@
 	}
 </script>
 <body>
-<?php include('header.php'); ?>
+<?php include('../view/header.php'); ?>
 <center><h1 class="headStyle"><a class="anchorStyle" href="addCustomer.php" >Add Customer</a></h1>
 <table  border= "1"  cellpadding= "25" >
 <tr>

@@ -15,6 +15,9 @@
 <body>
 <?php include('header.php'); ?>
 <center>
+<div class="demo">
+<button class="headStyle" type="button" onclick="loadDoc()">About Restaurant </button>
+</div>
 <h2>Profile</h2>
 <h4><a style="text-decoration: none; background-color:#d1ffad;" href="../controller/action_changePassword.php?uname=admin">Change Password&nbsp;&nbsp;</a>
 <a style="text-decoration: none; background-color:#d1ffad;" href="../controller/action_updateProfile.php?uname=admin">Edit Profile&nbsp;&nbsp;</a></h4>
@@ -59,4 +62,17 @@
 <br>
 <?php include('footer.php'); ?>
 </body>
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "../view/about.txt", true);
+  xhttp.send();
+}
+</script>
 </html>
